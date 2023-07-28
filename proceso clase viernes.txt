@@ -1,0 +1,47 @@
+prender xampp -> crear bd flask
+
+
+dependencias necesarias para el ejercicio:
+
+flask-sqlalchemy
+flask-migrate
+mysqlclient
+
+
+creacion de la arquitectura del proyecto
+
+config.py contiene la clase de configuracion 
+app.py: continene el objeto flask, la configuracion desde archivo y db sqlalchemy, y los modelos
+
+
+inicializar con flask db init
+
+crear migracion copn flask db migrate 
+
+ejecutar con flask db upgrade
+
+rollback  con flask db downgrade
+
+Ojo: no hay necesidad de hacer rollback como en laravlel
+
+
+DATOS
+
+from app import app , db, Cliente, Venta, Producto , DetalleVenta
+app.app_context().push()
+
+c = Cliente(username = "shaman" , email = "shaman@shaman.com" , password_hash = "12345")
+db.session.add(c)
+DB.SESSION.COMMIT()
+
+para guardar mas datos hay que repetir el paso del contexto
+
+Cliente.query.get(1)
+
+
+
+
+
+
+
+
